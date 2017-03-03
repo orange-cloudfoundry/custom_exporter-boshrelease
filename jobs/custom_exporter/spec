@@ -1,5 +1,16 @@
 ---
 name: custom_exporter
 templates:
+  custom_exporter_ctl: bin/custom_exporter_ctl
+  custom_exporter.yml.erb: conf/custom_exporter.yml
 
 packages:
+- custom_exporter
+
+
+properties:
+  custom_exporter.credentials: 
+    description: "Provide credentials that will be used by custom_exporter"
+  custom_exporter.metrics:
+    description: "Provide queries to retrieve metrics"
+

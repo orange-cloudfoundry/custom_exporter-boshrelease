@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -eu
+
+BIN_DIR=/var/vcap/packages/custom_exporter/bin
+CNF_DIR=/var/vcap/jobs/custom_exporter/conf
+RUN_DIR=/var/vcap/sys/run/custom_exporter
+LOG_DIR=/var/vcap/sys/log/custom_exporter
+TMP_DIR=/var/vcap/sys/tmp/custom_exporter
+STORE_DIR=/var/vcap/store/custom_exporter
+
+mkdir -p ${RUN_DIR} ${LOG_DIR} ${TMP_DIR} ${STORE_DIR}
+
+PIDFILE=${RUN_DIR}/custom_exporter.pid
+
+case $1 in
+  start)
+  ${BIN_DIR}/custom_exporter \
+  -collector.config=${CNF_DIR}/custom_exporter.yml \
+  -log.level=debug \
+  >> ${LOG_DIR}/custom_exporter.stdout.log \
+  2>> ${LOG_DIR}/custom_exporter.stderr.log \
+  &
+  echo $! > ${PIDFILE}
+  ;;
+
+  stop)
+  kill -9 -$(cat $PIDFILE)
+  rm -f $PIDFILE
+  ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+  ;;
+
+esac
+exit 0
+
+

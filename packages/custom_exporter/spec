@@ -1,0 +1,5 @@
+---
+name: custom_exporter
+
+files:
+- custom_exporter/custom_exporter-0.1.tar.gz

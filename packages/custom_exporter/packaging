@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -eux
+
+# Extract custom_exporter package
+mkdir -p ${BOSH_INSTALL_TARGET}/bin
+tar xzvf ${BOSH_COMPILE_TARGET}/custom_exporter/custom_exporter-0.1.tar.gz
+#cp -a ${BOSH_COMPILE_TARGET}/custom_exporter/custom_exporter.go ${BOSH_INSTALL_TARGET}/bin
+cp -a custom_exporter.go ${BOSH_INSTALL_TARGET}/bin/custom_exporter
+chmod +x ${BOSH_INSTALL_TARGET}/bin/custom_exporter
+
