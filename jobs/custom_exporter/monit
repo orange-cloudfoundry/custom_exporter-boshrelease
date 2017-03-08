@@ -3,3 +3,4 @@ check process custom_exporter
   start program "/var/vcap/jobs/custom_exporter/bin/custom_exporter_ctl start"
   stop program "/var/vcap/jobs/custom_exporter/bin/custom_exporter_ctl stop"
   group vcap
+
