@@ -15,6 +15,7 @@ PIDFILE=${RUN_DIR}/custom_exporter.pid
 
 case $1 in
   start)
+  echo "Starting custom_exporter"
   ${BIN_DIR}/custom_exporter \
   -collector.config=${CNF_DIR}/custom_exporter.yml \
   -log.level=debug \
@@ -25,12 +26,29 @@ case $1 in
   ;;
 
   stop)
-  kill -9 -$(cat $PIDFILE)
+  echo "Stoping custom_exporter"
+  kill -9 $(cat $PIDFILE)
   rm -f $PIDFILE
   ;;
 
+  restart)
+  echo "Restarting custom_exporter"
+  kill -9 $(cat $PIDFILE)
+  rm -f $PIDFILE
+  sleep 5
+  ${BIN_DIR}/custom_exporter \
+  -collector.config=${CNF_DIR}/custom_exporter.yml \
+  -log.level=debug \
+  >> ${LOG_DIR}/custom_exporter.stdout.log \
+  2>> ${LOG_DIR}/custom_exporter.stderr.log \
+  &
+  echo $! > ${PIDFILE}
+  ;;
+
+
+
   *)
-    echo "Usage: $0 {start|stop}"
+    echo "Usage: $0 {start|stop|restart}"
     exit 1
   ;;
 

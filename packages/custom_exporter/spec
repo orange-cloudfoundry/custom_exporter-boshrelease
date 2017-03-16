@@ -1,5 +1,23 @@
 ---
 name: custom_exporter
-
+dependencies: 
+- golang
 files:
-- custom_exporter/custom_exporter-0.2.tar.gz
+- github.com/beorn7/perks/quantile/*.go
+- github.com/golang/protobuf/proto/*.go
+- github.com/matttproud/golang_protobuf_extensions/pbutil/*.go
+- github.com/orange-cloudfoundry/custom_exporter/*.go
+- github.com/orange-cloudfoundry/custom_exporter/collector/*.go
+- github.com/orange-cloudfoundry/custom_exporter/custom_config/*.go
+- github.com/prometheus/client_golang/prometheus/*.go
+- github.com/prometheus/client_model/go/*.go
+- github.com/prometheus/common/expfmt/*.go
+- github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg/*.go
+- github.com/prometheus/common/log/*.go
+- github.com/prometheus/common/model/*.go
+- github.com/prometheus/common/version/*.go
+- github.com/prometheus/procfs/*.go
+- github.com/prometheus/procfs/xfs/*.go
+- github.com/Sirupsen/logrus/*.go
+- gopkg.in/yaml.v2/*.go
+
