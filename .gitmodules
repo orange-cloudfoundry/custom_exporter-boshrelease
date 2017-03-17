@@ -38,3 +38,7 @@
 	path = src/gopkg.in/yaml.v2
 	url = https://github.com/go-yaml/yaml.git
 	branch = v2
+[submodule "src/gopkg.in/redis.v5"]
+	path = src/gopkg.in/redis.v5
+	url = https://gopkg.in/redis.v5
+	branch = master
