@@ -3,7 +3,7 @@
 CUR_DIR=$(pwd)
 CUR_TS=$(date +%s)
 RELEASE_NAME=custom_exporter-${CUR_TS}+alpha.tgz
-
+AF_URL=""
 ##release generator for custom_exporter
 rm -Rf tmp_custom_exporter
 git clone https://github.com/orange-cloudfoundry/custom_exporter-boshrelease.git tmp_custom_exporter
@@ -20,5 +20,5 @@ bosh add-blob go1.7.linux-amd64.tar.gz go1.7.linux-amd64.tar.gz
 bosh create-release --tarball=${CUR_DIR}/${RELEASE_NAME} --version ${CUR_TS}+alpha --force
 
 ##uploading release
-curl -u ${USER} -T ${CUR_DIR}/${RELEASE_NAME} "https://artifactory.packages.install-os.multis.p.fti.net/cloudfoundry_bosh-release_prometheus_custom_exporter/${RELEASE_NAME}"
+curl -u ${USER} -T ${CUR_DIR}/${RELEASE_NAME} "${AF_URL}/${RELEASE_NAME}"
 
