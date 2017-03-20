@@ -12,7 +12,7 @@ files:
 - github.com/orange-cloudfoundry/custom_exporter/custom_config/*.go
 - github.com/prometheus/client_golang/prometheus/*.go
 - github.com/prometheus/client_model/go/*.go
-- github.com/prometheus/common/expfmtv/*.go
+- github.com/prometheus/common/expfmt/*.go
 - github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg/*.go
 - github.com/prometheus/common/log/*.go
 - github.com/prometheus/common/model/*.go
