@@ -9,6 +9,8 @@ export GOROOT=$(readlink -nf /var/vcap/packages/golang)
 export PATH=$GOROOT/bin:$PATH
 go install github.com/orange-cloudfoundry/custom_exporter
 
+cp scripts/* $BOSH_INSTALL_TARGET
+chmod +x $BOSH_INSTALL_TARGET/*.sh
 # clean up source artifacts
 rm -rf ${BOSH_INSTALL_TARGET}/src ${BOSH_INSTALL_TARGET}/pkg
 
