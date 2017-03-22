@@ -18,7 +18,7 @@ case $1 in
   echo "Starting custom_exporter"
   ${BIN_DIR}/custom_exporter \
   -collector.config=${CNF_DIR}/custom_exporter.yml \
-  -log.level=debug \
+  -log.level=info \
   >> ${LOG_DIR}/custom_exporter.stdout.log \
   2>> ${LOG_DIR}/custom_exporter.stderr.log \
   &
@@ -38,7 +38,7 @@ case $1 in
   sleep 5
   ${BIN_DIR}/custom_exporter \
   -collector.config=${CNF_DIR}/custom_exporter.yml \
-  -log.level=debug \
+  -log.level=info \
   >> ${LOG_DIR}/custom_exporter.stdout.log \
   2>> ${LOG_DIR}/custom_exporter.stderr.log \
   &
