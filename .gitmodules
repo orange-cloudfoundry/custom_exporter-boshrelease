@@ -42,3 +42,7 @@
 	path = src/gopkg.in/redis.v5
 	url = https://gopkg.in/redis.v5
 	branch = master
+[submodule "src/github.com/go-sql-driver/mysql"]
+	path = src/github.com/go-sql-driver/mysql
+	url = https://github.com/go-sql-driver/mysql
+	branch = master
