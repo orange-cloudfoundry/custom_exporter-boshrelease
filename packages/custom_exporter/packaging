@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+# Deploying custom exporter
 mkdir -p ${BOSH_INSTALL_TARGET}/src
 cp -a . ${BOSH_INSTALL_TARGET}/src
 export GOPATH=$BOSH_INSTALL_TARGET
@@ -9,8 +10,10 @@ export GOROOT=$(readlink -nf /var/vcap/packages/golang)
 export PATH=$GOROOT/bin:$PATH
 go install github.com/orange-cloudfoundry/custom_exporter
 
-cp scripts/* $BOSH_INSTALL_TARGET
-chmod +x $BOSH_INSTALL_TARGET/*.sh
+# Deploying custom monitoring scripts
+mkdir -p ${BOSH_INSTALL_TARGET}/custom_monitoring_scripts
+cp custom_monitoring_scripts/* $BOSH_INSTALL_TARGET/custom_monitoring_scripts
+chmod +x $BOSH_INSTALL_TARGET/custom_monitoring_scripts/*.sh
 # clean up source artifacts
 rm -rf ${BOSH_INSTALL_TARGET}/src ${BOSH_INSTALL_TARGET}/pkg
 

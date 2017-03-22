@@ -3,7 +3,7 @@ name: custom_exporter
 dependencies: 
 - golang
 files:
-- scripts/*.sh
+- custom_monitoring_scripts/*.sh
 - github.com/Sirupsen/logrus/*.go
 - github.com/beorn7/perks/quantile/*.go
 - github.com/golang/protobuf/proto/*.go
