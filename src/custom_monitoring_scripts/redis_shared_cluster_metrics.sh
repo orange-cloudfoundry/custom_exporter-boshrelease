@@ -17,6 +17,14 @@ do
     i=$(($i+1))
 done
 
+function list_instances {
+    for (( j=0;j<$i;j++ ))
+    do
+    instance_id=${REDIS_CREDENTIALS[$j,instance_id]}
+    instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
+    printf "%s %s 0\n" $instance_id $instance_port
+    done
+}
 
 function count_connected_clients {
     for (( j=0;j<$i;j++ ))
@@ -25,7 +33,7 @@ function count_connected_clients {
     instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
     instance_password=${REDIS_CREDENTIALS[$j,instance_password]}
     QUERY=$($REDIS_BIN -p $instance_port -a $instance_password CLIENT LIST | wc -l)
-    printf "%s %s\n" $instance_id $QUERY
+    printf "%s %s %s\n" $instance_id $instance_port $QUERY
     done
 }
 
@@ -36,7 +44,7 @@ function database_keys_count {
     instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
     instance_password=${REDIS_CREDENTIALS[$j,instance_password]}
     QUERY=$($REDIS_BIN -p $instance_port -a $instance_password DBSIZE)
-    printf "%s %s\n" $instance_id $QUERY
+    printf "%s %s %s\n" $instance_id $instance_port $QUERY
     done
 }
 
@@ -47,7 +55,7 @@ function get_used_memory {
     instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
     instance_password=${REDIS_CREDENTIALS[$j,instance_password]}
     QUERY=$($REDIS_BIN -p $instance_port -a $instance_password INFO | grep 'used_memory:' | awk -F: '{print $2}')
-    printf "%s %s\n" $instance_id $QUERY
+    printf "%s %s %s\n" $instance_id $instance_port $QUERY
     done
 }
 
@@ -58,7 +66,7 @@ function get_maxmemory {
     instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
     instance_password=${REDIS_CREDENTIALS[$j,instance_password]}
     QUERY=$($REDIS_BIN -p $instance_port -a $instance_password INFO | grep 'maxmemory:' | awk -F: '{print $2}')
-    printf "%s %s\n" $instance_id $QUERY
+    printf "%s %s %s\n" $instance_id $instance_port $QUERY
     done
 }
 
@@ -69,7 +77,7 @@ function get_evicted_keys {
     instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
     instance_password=${REDIS_CREDENTIALS[$j,instance_password]}
     QUERY=$($REDIS_BIN -p $instance_port -a $instance_password INFO | grep 'evicted_keys:' | awk -F: '{print $2}')
-    printf "%s %s\n" $instance_id $QUERY
+    printf "%s %s %s\n" $instance_id $instance_port $QUERY
     done
 }
 
