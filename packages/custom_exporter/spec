@@ -11,8 +11,9 @@ files:
 - github.com/matttproud/golang_protobuf_extensions/pbutil/*.go
 - github.com/orange-cloudfoundry/custom_exporter/*.go
 - github.com/orange-cloudfoundry/custom_exporter/collector/*.go
-- github.com/orange-cloudfoundry/custom_exporter/custom_config/*.go
+- github.com/orange-cloudfoundry/custom_exporter/config/*.go
 - github.com/prometheus/client_golang/prometheus/*.go
+- github.com/prometheus/client_golang/prometheus/promhttp/*.go
 - github.com/prometheus/client_model/go/*.go
 - github.com/prometheus/common/expfmt/*.go
 - github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg/*.go

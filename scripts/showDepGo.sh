@@ -61,7 +61,7 @@ printAllPkg () {
   echo -e "\n\n\n\n"
 }
 
-listAll=$(getAllImports github.com/orange-cloudfoundry/custom_exporter github.com/orange-cloudfoundry/custom_exporter/custom_config github.com/orange-cloudfoundry/custom_exporter/collector) #&& printAllPkg $listAll
+listAll=$(getAllImports github.com/orange-cloudfoundry/custom_exporter github.com/orange-cloudfoundry/custom_exporter/config github.com/orange-cloudfoundry/custom_exporter/collector) #&& printAllPkg $listAll
 listAll=$(getAllImports $listAll) #&& printAllPkg $listAll
 listAll=$(getAllImports $listAll) #&& printAllPkg $listAll
 listAll=$(getAllImports $listAll) 
