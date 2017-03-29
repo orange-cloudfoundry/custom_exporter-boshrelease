@@ -10,7 +10,7 @@ files:
 - github.com/go-sql-driver/mysql/*.go
 - github.com/matttproud/golang_protobuf_extensions/pbutil/*.go
 - github.com/orange-cloudfoundry/custom_exporter/Makefile
-- github.com/orange-cloudfoundry/custom_exporter/.promu
+- github.com/orange-cloudfoundry/custom_exporter/.promu.yml
 - github.com/orange-cloudfoundry/custom_exporter/VERSION
 - github.com/orange-cloudfoundry/custom_exporter/*.go
 - github.com/orange-cloudfoundry/custom_exporter/collector/*.go
