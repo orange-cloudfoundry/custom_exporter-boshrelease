@@ -9,6 +9,9 @@ files:
 - github.com/golang/protobuf/proto/*.go
 - github.com/go-sql-driver/mysql/*.go
 - github.com/matttproud/golang_protobuf_extensions/pbutil/*.go
+- github.com/orange-cloudfoundry/custom_exporter/Makefile
+- github.com/orange-cloudfoundry/custom_exporter/.promu
+- github.com/orange-cloudfoundry/custom_exporter/VERSION
 - github.com/orange-cloudfoundry/custom_exporter/*.go
 - github.com/orange-cloudfoundry/custom_exporter/collector/*.go
 - github.com/orange-cloudfoundry/custom_exporter/config/*.go
@@ -29,3 +32,4 @@ files:
 - gopkg.in/redis.v5/internal/pool/*.go
 - gopkg.in/redis.v5/internal/proto/*.go
 - gopkg.in/yaml.v2/*.go
+
