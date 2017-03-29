@@ -1,7 +1,7 @@
 [submodule "src/github.com/orange-cloudfoundry/custom_exporter"]
 	path = src/github.com/orange-cloudfoundry/custom_exporter
 	url = https://github.com/orange-cloudfoundry/custom_exporter.git
-	branch = master
+	branch = release-1.0
 [submodule "src/github.com/prometheus/client_golang"]
 	path = src/github.com/prometheus/client_golang
 	url = https://github.com/prometheus/client_golang.git
