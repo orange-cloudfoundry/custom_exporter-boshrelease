@@ -81,4 +81,22 @@ function get_evicted_keys {
     done
 }
 
+function instance_health {
+    for (( j=0;j<$i;j++ ))
+    do
+    instance_id=${REDIS_CREDENTIALS[$j,instance_id]}
+    instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
+    instance_password=${REDIS_CREDENTIALS[$j,instance_password]}
+    check_SET=$($REDIS_BIN -p $instance_port -a $instance_password SET instance_health "smooth")
+    check_GET=$($REDIS_BIN -p $instance_port -a $instance_password GET instance_health)
+    check_DEL=$($REDIS_BIN -p $instance_port -a $instance_password DEL instance_health)
+    check_deleted=$($REDIS_BIN -p $instance_port -a $instance_password GET instance_health)
+    if [ "$check_SET" == "OK" ] && [ "$check_GET" == "smooth" ] && [ "$check_DEL" == "1" ] && [ -z "$check_deleted" ]
+    then QUERY=1
+    else QUERY=0
+    fi
+    printf "%s %s %s\n" $instance_id $instance_port $QUERY
+    done
+}
+
 $1
