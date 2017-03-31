@@ -11,7 +11,7 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 cd $GOPATH/github.com/orange-cloudfoundry/custom_exporter && \
   make && \
-  rm -vf $GOPATH/bin/* && \
+  #rm -vf $GOPATH/bin/* && \
   cp -pvf $GOPATH/github.com/orange-cloudfoundry/custom_exporter/custom_exporter $BOSH_INSTALL_TARGET/bin
 #go install github.com/orange-cloudfoundry/custom_exporter
 
