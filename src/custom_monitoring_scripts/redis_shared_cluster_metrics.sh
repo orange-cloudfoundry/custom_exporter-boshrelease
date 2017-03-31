@@ -99,4 +99,21 @@ function instance_health {
     done
 }
 
+function get_no_ttl_keys {
+for (( j=0;j<$i;j++ ))
+    do
+    instance_id=${REDIS_CREDENTIALS[$j,instance_id]}
+    instance_port=${REDIS_CREDENTIALS[$j,instance_port]}
+    instance_password=${REDIS_CREDENTIALS[$j,instance_password]}
+    no_ttl_keys=0
+    $REDIS_BIN -p $instance_port -a $instance_password keys  "*" | while read LINE
+        do TTL=`$REDIS_BIN -p $instance_port -a $instance_password ttl "$LINE"`
+            if [ $TTL -eq  -1 ]
+            then ((no_ttl_keys++))
+            fi
+        printf "%s %s %s\n" $instance_id $instance_port $no_ttl_keys
+        done
+done
+}
+
 $1
