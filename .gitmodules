@@ -46,3 +46,9 @@
 	path = src/github.com/go-sql-driver/mysql
 	url = https://github.com/go-sql-driver/mysql
 	branch = master
+[submodule "src/github.com/prometheus/promu"]
+	path = src/github.com/prometheus/promu
+	url = https://github.com/prometheus/promu.git
+[submodule "src/gopkg.in/gemnasium/logrus-airbrake-hook.v2"]
+	path = src/gopkg.in/gemnasium/logrus-airbrake-hook.v2
+	url = https://github.com/gemnasium/logrus-airbrake-hook

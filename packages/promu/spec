@@ -1,0 +1,46 @@
+---
+name: promu
+dependencies:
+- golang
+files:
+- github.com/prometheus/promu/Makefile
+- github.com/prometheus/promu/.promu.yml
+- github.com/prometheus/promu/VERSION
+- github.com/prometheus/promu/*.go
+- github.com/prometheus/promu/cmd/*.go
+- github.com/prometheus/promu/util/retry/*.go
+- github.com/prometheus/promu/util/sh/*.go
+- github.com/prometheus/promu/vendor/github.com/BurntSushi/toml/*.go
+- github.com/prometheus/promu/vendor/github.com/beorn7/perks/quantile/*.go
+- github.com/prometheus/promu/vendor/github.com/golang/protobuf/proto/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/hcl/ast/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/hcl/parser/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/hcl/scanner/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/hcl/strconv/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/hcl/token/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/json/parser/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/json/scanner/*.go
+- github.com/prometheus/promu/vendor/github.com/hashicorp/hcl/json/token/*.go
+- github.com/prometheus/promu/vendor/github.com/inconshreveable/mousetrap/*.go
+- github.com/prometheus/promu/vendor/github.com/kr/pretty/*.go
+- github.com/prometheus/promu/vendor/github.com/kr/text/*.go
+- github.com/prometheus/promu/vendor/github.com/magiconair/properties/*.go
+- github.com/prometheus/promu/vendor/github.com/matttproud/golang_protobuf_extensions/pbutil/*.go
+- github.com/prometheus/promu/vendor/github.com/mcuadros/go-version/*.go
+- github.com/prometheus/promu/vendor/github.com/mitchellh/mapstructure/*.go
+- github.com/prometheus/promu/vendor/github.com/progrium/go-shell/*.go
+- github.com/prometheus/promu/vendor/github.com/prometheus/client_golang/prometheus/*.go
+- github.com/prometheus/promu/vendor/github.com/prometheus/client_model/go/*.go
+- github.com/prometheus/promu/vendor/github.com/prometheus/common/expfmt/*.go
+- github.com/prometheus/promu/vendor/github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg/*.go
+- github.com/prometheus/promu/vendor/github.com/prometheus/common/model/*.go
+- github.com/prometheus/promu/vendor/github.com/prometheus/common/version/*.go
+- github.com/prometheus/promu/vendor/github.com/prometheus/procfs/*.go
+- github.com/prometheus/promu/vendor/github.com/spf13/cast/*.go
+- github.com/prometheus/promu/vendor/github.com/spf13/cobra/*.go
+- github.com/prometheus/promu/vendor/github.com/spf13/jwalterweatherman/*.go
+- github.com/prometheus/promu/vendor/github.com/spf13/pflag/*.go
+- github.com/prometheus/promu/vendor/github.com/spf13/viper/*.go
+- github.com/prometheus/promu/vendor/gopkg.in/fsnotify.v1/*.go
+- github.com/prometheus/promu/vendor/gopkg.in/yaml.v2/*.go
