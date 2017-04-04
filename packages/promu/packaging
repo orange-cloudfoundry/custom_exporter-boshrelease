@@ -7,10 +7,9 @@ cp -a . ${BOSH_INSTALL_TARGET}/src
 
 export GOPATH=$BOSH_INSTALL_TARGET
 export GOROOT=$(readlink -nf /var/vcap/packages/golang)
-export PROMU=$(readlink -nf /var/vcap/packages/promu)/bin/promu
-export PKGSRC=$GOPATH/src/github.com/orange-cloudfoundry/custom_exporter
+export PKGSRC=$GOPATH/src/github.com/prometheus/promu
 export PKGBIN=$GOPATH/bin
-export BINFILE=custom_exporter
+export BINFILE=promu
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 moveBinariesFromSrc () {
@@ -32,25 +31,27 @@ cleanBinariesSrc () {
   fi
 }
 
-# Deploying custom monitoring scripts
-mkdir -p ${BOSH_INSTALL_TARGET}/custom_monitoring_scripts
-cp custom_monitoring_scripts/* $BOSH_INSTALL_TARGET/custom_monitoring_scripts
-chmod +x $BOSH_INSTALL_TARGET/custom_monitoring_scripts/*.sh
+buildFromGo () {
+  cleanBinariesSrc
 
-cleanBinariesSrc 
+  if [ -e $PKGBIN/$BINFILE ];
+  then 
+    rm -vf $PKGBIN/$BINFILE
+  fi
 
-cd $PKGSRC && $PROMU build --cgo=true --verbose --prefix $PKGBIN/$BINFILE || ls -ahl $PKGBIN
-#cd $PKGSRC && ${BOSH_INSTALL_TARGET}/bin/promu build . || ls -ahl ${BOSH_INSTALL_TARGET}/bin
+  cd $PKGSRC && go install .
+  moveBinariesFromSrc
+}
 
-if [ ! -e $PKGSRC/$BINFILE ] && [ ! -e $PKGBIN/$BINFILE ];
-then
+buildFromGo
+
+if [ ! -e $PKGBIN/$BINFILE ]; then
   ls -ahl $PKGSRC
   ls -ahl $PKGBIN
   exit 1
 fi
 
-moveBinariesFromSrc
+cleanBinariesSrc
 
-# clean up source artifacts
 rm -rf ${BOSH_INSTALL_TARGET}/src ${BOSH_INSTALL_TARGET}/pkg
 
