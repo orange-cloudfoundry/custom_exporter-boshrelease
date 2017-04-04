@@ -111,8 +111,8 @@ for (( j=0;j<$i;j++ ))
             if [ $TTL -eq  -1 ]
             then ((no_ttl_keys++))
             fi
-        printf "%s %s %s\n" $instance_id $instance_port $no_ttl_keys
         done
+        printf "%s %s %s\n" $instance_id $instance_port $no_ttl_keys
 done
 }
 
