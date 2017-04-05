@@ -1,5 +1,11 @@
+---
+credentials:
 <%=
 require 'yaml'
-yaml_custom_exporter_config=p('custom_exporter').to_yaml
-yaml_custom_exporter_config
+p('custom_exporter.credentials').to_yaml.gsub("---\n", '')
+%>
+metrics:
+<%=
+require 'yaml'
+p('custom_exporter.metrics').to_yaml.gsub("---\n", '')
 %>

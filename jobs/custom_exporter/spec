@@ -36,3 +36,9 @@ properties:
         mapping:
         - database
         value_type: UNTYPED
+  custom_exporter.port:
+    description: "port custom_exporter will listen on"
+    default: 9213
+  custom_exporter.loglevel:
+    description: "custom_exporter loglevel"
+    default: info
