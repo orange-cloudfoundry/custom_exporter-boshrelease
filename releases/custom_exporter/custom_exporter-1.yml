@@ -1,0 +1,32 @@
+name: custom_exporter
+version: "1"
+commit_hash: 7bc2433
+uncommitted_changes: false
+jobs:
+- name: custom_exporter
+  version: 180c9ed7480667dfd6f27e2987d1651aa77cdada
+  fingerprint: 180c9ed7480667dfd6f27e2987d1651aa77cdada
+  sha1: 2d697b20a12a53f6ce008d1594f9f7124a5e2504
+- name: just_install_packages
+  version: a8c06b040f6b07bd9f441f9319981292b719d462
+  fingerprint: a8c06b040f6b07bd9f441f9319981292b719d462
+  sha1: a9c7ab2bbd5cad1902197bc2c46b49ccafa51844
+packages:
+- name: custom_exporter
+  version: bb50cbc1e8dfb6a714bb4a924bae9aae49ab672d
+  fingerprint: bb50cbc1e8dfb6a714bb4a924bae9aae49ab672d
+  sha1: 74ebaed5e459300cbf649feb230aa6e45f5cf017
+  dependencies:
+  - golang
+  - promu
+- name: golang
+  version: bfef694ebb81e79df9fa1b52485520e8f3bca68f
+  fingerprint: bfef694ebb81e79df9fa1b52485520e8f3bca68f
+  sha1: 9c257c8eaff114a9555b1160a30c550e2308e132
+  dependencies: []
+- name: promu
+  version: c7551db51249a204cba70d7ba45a7b6b904e03ae
+  fingerprint: c7551db51249a204cba70d7ba45a7b6b904e03ae
+  sha1: b8723f0458ecf4c173573cfafa49ad3bc4b54891
+  dependencies:
+  - golang
